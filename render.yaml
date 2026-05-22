@@ -3,8 +3,8 @@ services:
     name: forestbrawl-api
     runtime: node
     region: frankfurt
-    buildCommand: "cd artifacts/api-server && npm install --legacy-peer-deps && npm run build"
-    startCommand: "cd artifacts/api-server && npm run start"
+    buildCommand: "cd artifacts/api-server && npm install --legacy-peer-deps 2>&1 && npm run build 2>&1"
+    startCommand: \"cd artifacts/api-server && node --enable-source-maps ./dist/index.mjs\"
     plan: standard
     envVars:
       - key: NODE_ENV
